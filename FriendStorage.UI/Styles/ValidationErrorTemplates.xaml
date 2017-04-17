@@ -19,4 +19,25 @@
             </Border>
         </StackPanel>
     </ControlTemplate>
+    <ControlTemplate x:Key="ErrorInsideErrorTemplate">
+        <Grid>
+            <AdornedElementPlaceholder x:Name="placeholder" />
+            <Border
+                Width="20"
+                Height="20"
+                Margin="3"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                Background="Orange"
+                CornerRadius="10"
+                ToolTip="{Binding ElementName=placeholder, Path=AdornedElement.(Validation.Errors)[0].ErrorContent}"
+                ToolTipService.InitialShowDelay="0">
+                <TextBlock
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Foreground="White"
+                    Text="!" />
+            </Border>
+        </Grid>
+    </ControlTemplate>
 </ResourceDictionary>

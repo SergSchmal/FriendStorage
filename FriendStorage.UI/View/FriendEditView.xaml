@@ -157,7 +157,7 @@
             Grid.Row="7"
             Grid.Column="1"
             Grid.ColumnSpan="4"
-            DataContext="{Binding Friend.Emails}" />
+            DataContext="{Binding Friend.Emails, ValidatesOnNotifyDataErrors=False}" />
 
         <StackPanel
             Grid.Row="8"
