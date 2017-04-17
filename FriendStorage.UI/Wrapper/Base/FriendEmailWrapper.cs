@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using FriendStorage.Model;
 
-namespace FriendStorage.UI.Wrapper
+namespace FriendStorage.UI.Wrapper.Base
 {
     public class FriendEmailWrapper : ModelWrapper<FriendEmail>
     {

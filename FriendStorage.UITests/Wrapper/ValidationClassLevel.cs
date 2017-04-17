@@ -3,6 +3,7 @@ using FriendStorage.UI.Wrapper;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 using System.Linq;
+using FriendStorage.UI.Wrapper.Base;
 
 namespace FriendStorage.UITests.Wrapper
 {

@@ -5,7 +5,7 @@ using System.ComponentModel;
 using System.Linq;
 using FriendStorage.UI.ViewModel;
 
-namespace FriendStorage.UI.Wrapper
+namespace FriendStorage.UI.Wrapper.Base
 {
     public class NotifyDataErrorInfoBase : Observable, INotifyDataErrorInfo
     {

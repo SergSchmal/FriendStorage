@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using FriendStorage.Model;
+using FriendStorage.UI.Wrapper.Base;
 
 namespace FriendStorage.UI.Wrapper
 {

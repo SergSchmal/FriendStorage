@@ -4,7 +4,7 @@ using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Linq;
 
-namespace FriendStorage.UI.Wrapper
+namespace FriendStorage.UI.Wrapper.Base
 {
     public class ChangeTrackingCollection<T> : ObservableCollection<T>, IValidatableTrackingObject
         where T : class, IValidatableTrackingObject

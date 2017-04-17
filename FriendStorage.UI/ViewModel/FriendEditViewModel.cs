@@ -7,6 +7,7 @@ using FriendStorage.UI.DataProvider.Lookups;
 using FriendStorage.UI.Events;
 using FriendStorage.UI.View.Services;
 using FriendStorage.UI.Wrapper;
+using FriendStorage.UI.Wrapper.Base;
 using Microsoft.Practices.Prism.PubSubEvents;
 
 namespace FriendStorage.UI.ViewModel

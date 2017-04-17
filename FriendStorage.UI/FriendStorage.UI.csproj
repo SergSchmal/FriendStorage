@@ -96,12 +96,12 @@
       <DependentUpon>NavigationView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Wrapper\AddressWrapper.cs" />
-    <Compile Include="Wrapper\ChangeTrackingCollection.cs" />
-    <Compile Include="Wrapper\FriendEmailWrapper.cs" />
+    <Compile Include="Wrapper\Base\ChangeTrackingCollection.cs" />
+    <Compile Include="Wrapper\Base\FriendEmailWrapper.cs" />
     <Compile Include="Wrapper\FriendWrapper.cs" />
-    <Compile Include="Wrapper\IValidatableTrackingObject.cs" />
-    <Compile Include="Wrapper\ModelWrapper.cs" />
-    <Compile Include="Wrapper\NotifyDataErrorInfoBase.cs" />
+    <Compile Include="Wrapper\Base\IValidatableTrackingObject.cs" />
+    <Compile Include="Wrapper\Base\ModelWrapper.cs" />
+    <Compile Include="Wrapper\Base\NotifyDataErrorInfoBase.cs" />
     <Page Include="Styles\Brushes.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-namespace FriendStorage.UI.Wrapper
+namespace FriendStorage.UI.Wrapper.Base
 {
     public interface IValidatableTrackingObject : IRevertibleChangeTracking, INotifyPropertyChanged
     {
