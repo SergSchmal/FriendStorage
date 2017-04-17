@@ -3,20 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:behaviors="clr-namespace:FriendStorage.UI.Behaviors">
     <Style x:Key="ControlBaseStyle" TargetType="Control">
-        <Setter Property="Validation.ErrorTemplate">
-            <Setter.Value>
-                <ControlTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <AdornedElementPlaceholder x:Name="placeholder"/>
-                        <Border Background="Orange" Margin="3" CornerRadius="10" Width="20" Height="20"
-                                ToolTip="{Binding ElementName=placeholder, Path=AdornedElement.(Validation.Errors)[0].ErrorContent}"
-                                ToolTipService.InitialShowDelay="0">
-                            <TextBlock Text="!" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Border>
-                    </StackPanel>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
+        <Setter Property="Validation.ErrorTemplate" Value="{StaticResource DefaultErrorTemplate}" />
         <Setter Property="behaviors:ChangeBehavior.IsActive" Value="True" />
         <Style.Triggers>
             <Trigger Property="behaviors:ChangeBehavior.IsChanged" Value="True">

@@ -28,7 +28,7 @@
             <ColumnDefinition Width="10" />
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="200" />
-            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*" MinWidth="20" />
         </Grid.ColumnDefinitions>
 
         <Label Margin="5" Content="Firstname" />
@@ -61,6 +61,7 @@
         <CheckBox
             Grid.Row="4"
             Grid.Column="1"
+            HorizontalAlignment="Left"
             VerticalAlignment="Center"
             IsChecked="{Binding Friend.IsDeveloper, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
 
