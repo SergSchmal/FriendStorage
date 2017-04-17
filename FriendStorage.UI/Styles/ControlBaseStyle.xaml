@@ -11,4 +11,14 @@
             </Trigger>
         </Style.Triggers>
     </Style>
+    <Style x:Key="TextBlockBaseStyle" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="behaviors:ChangeBehavior.IsActive" Value="True" />
+        <Style.Triggers>
+            <Trigger Property="behaviors:ChangeBehavior.IsChanged" Value="True">
+                <Setter Property="Background" Value="{StaticResource IsChangedBackgroundBrush}" />
+                <Setter Property="ToolTip" Value="{Binding RelativeSource={RelativeSource Self}, Path=(behaviors:ChangeBehavior.OriginalValue)}" />
+            </Trigger>
+        </Style.Triggers>
+    </Style>
 </ResourceDictionary>

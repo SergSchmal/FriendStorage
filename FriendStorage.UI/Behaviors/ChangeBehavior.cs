@@ -83,8 +83,7 @@ namespace FriendStorage.UI.Behaviors
                     if (binding != null)
                     {
                         var bindingPath = binding.Path.Path;
-                        BindingOperations.SetBinding(d, IsChangedProperty,
-                            new Binding(bindingPath + "IsChanged"));
+                        BindingOperations.SetBinding(d, IsChangedProperty, new Binding(bindingPath + "IsChanged"));
                         CreateOriginalValueBinding(d, bindingPath + "OriginalValue");
                     }
                 }
@@ -98,8 +97,7 @@ namespace FriendStorage.UI.Behaviors
 
         private static void OnOriginalValueConverterPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            var originalValueBinding
-                = BindingOperations.GetBinding(d, OriginalValueProperty);
+            var originalValueBinding = BindingOperations.GetBinding(d, OriginalValueProperty);
             if (originalValueBinding != null)
                 CreateOriginalValueBinding(d, originalValueBinding.Path.Path);
         }

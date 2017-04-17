@@ -61,7 +61,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Behaviors\ChangeBehavior.cs" />
+    <Compile Include="Behaviors\DataGridChangeBehavior.cs" />
+    <Compile Include="Converters\ComboBoxOriginalValueConverter.cs" />
     <Compile Include="Command\DelegateCommand.cs" />
+    <Compile Include="Converters\DatePickerOriginalValueConverter.cs" />
     <Compile Include="DataProvider\FriendDataProvider.cs" />
     <Compile Include="DataProvider\IFriendDataProvider.cs" />
     <Compile Include="DataProvider\Lookups\FriendGroupLookupProvider.cs" />
@@ -76,6 +79,9 @@
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\NavigationViewModel.cs" />
     <Compile Include="ViewModel\Observable.cs" />
+    <Compile Include="View\Controls\ChangeTrackingCollectionInfo.xaml.cs">
+      <DependentUpon>ChangeTrackingCollectionInfo.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\FriendEditView.xaml.cs">
       <DependentUpon>FriendEditView.xaml</DependentUpon>
     </Compile>
@@ -132,6 +138,10 @@
     <Page Include="Styles\ToolTip.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Controls\ChangeTrackingCollectionInfo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="View\FriendEditView.xaml">
       <SubType>Designer</SubType>

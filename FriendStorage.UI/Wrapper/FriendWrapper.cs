@@ -49,19 +49,19 @@ namespace FriendStorage.UI.Wrapper
             set => SetValue(value);
         }
 
-        public string FriendGroupIdOriginalValue => GetOriginalValue<string>(nameof(FriendGroupId));
+        public int FriendGroupIdOriginalValue => GetOriginalValue<int>(nameof(FriendGroupId));
 
         public bool FriendGroupIdIsChanged => GetIsChanged(nameof(FriendGroupId));
 
-        public DateTime? BirthDay
+        public DateTime? Birthday
         {
             get => GetValue<DateTime?>();
             set => SetValue(value);
         }
 
-        public string BirthDayOriginalValue => GetOriginalValue<string>(nameof(BirthDay));
+        public DateTime? BirthdayOriginalValue => GetOriginalValue<DateTime?>(nameof(Birthday));
 
-        public bool BirthDayIsChanged => GetIsChanged(nameof(BirthDay));
+        public bool BirthdayIsChanged => GetIsChanged(nameof(Birthday));
 
         public bool IsDeveloper
         {
