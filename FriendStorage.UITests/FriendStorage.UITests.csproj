@@ -40,6 +40,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.IO.Compression" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Numerics" />
@@ -85,6 +86,10 @@
     <Compile Include="Wrapper\ChangeTrackingCollectionTests.cs" />
     <Compile Include="Wrapper\ChangeTrackingComplexProperty.cs" />
     <Compile Include="Wrapper\ChangeTrackingSimpleProperty.cs" />
+    <Compile Include="Wrapper\ValidationClassLevel.cs" />
+    <Compile Include="Wrapper\ValidationCollectionProperty.cs" />
+    <Compile Include="Wrapper\ValidationComplexProperty.cs" />
+    <Compile Include="Wrapper\ValidationSimpleProperty.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\FriendStorage.Model\FriendStorage.Model.csproj">

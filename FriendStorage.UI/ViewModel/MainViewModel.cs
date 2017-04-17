@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Windows.Input;
 using FriendStorage.UI.Command;
@@ -99,6 +100,15 @@ namespace FriendStorage.UI.ViewModel
                 = FriendEditViewModels.SingleOrDefault(f => f.Friend.Id == friendId);
             if (friendDetailVmToClose != null)
                 FriendEditViewModels.Remove(friendDetailVmToClose);
+        }
+
+        public void OnClosing(CancelEventArgs e)
+        {
+            if (FriendEditViewModels.Any(f => f.Friend.IsChanged))
+            {
+                var result = _messageDialogService.ShowYesNoDialog("Close application?", "You'll lose your changes if you close the application. Close it?", MessageDialogResult.No);
+                e.Cancel = result == MessageDialogResult.No;
+            }
         }
     }
 }

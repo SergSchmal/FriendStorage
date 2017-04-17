@@ -15,7 +15,7 @@ namespace FriendStorage.UI.Converters
             {
                 var id = (int) value;
                 var combobox = parameter as ComboBox;
-                var lookupItem = combobox?.ItemsSource?.OfType<LookupItem>().Single(l => l.Id == id);
+                var lookupItem = combobox?.ItemsSource?.OfType<LookupItem>().SingleOrDefault(l => l.Id == id);
                 if (lookupItem != null)
                     return lookupItem.DisplayValue;
             }

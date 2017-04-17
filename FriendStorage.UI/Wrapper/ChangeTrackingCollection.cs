@@ -6,13 +6,13 @@ using System.Linq;
 
 namespace FriendStorage.UI.Wrapper
 {
-    public class ChangeTrackingCollection<T> : ObservableCollection<T>, IRevertibleChangeTracking
-        where T : class, IRevertibleChangeTracking, INotifyPropertyChanged
+    public class ChangeTrackingCollection<T> : ObservableCollection<T>, IValidatableTrackingObject
+        where T : class, IValidatableTrackingObject
     {
         private readonly ObservableCollection<T> _addedItems;
         private readonly ObservableCollection<T> _modifiedItems;
-        private IList<T> _originalCollection;
         private readonly ObservableCollection<T> _removedItems;
+        private IList<T> _originalCollection;
 
         public ChangeTrackingCollection(IEnumerable<T> items)
             : base(items)
@@ -62,6 +62,8 @@ namespace FriendStorage.UI.Wrapper
             OnPropertyChanged(new PropertyChangedEventArgs(nameof(IsChanged)));
         }
 
+        public bool IsValid => this.All(t => t.IsValid);
+
         protected override void OnCollectionChanged(NotifyCollectionChangedEventArgs e)
         {
             var added = this.Where(current => _originalCollection.All(orig => orig != current)).ToList();
@@ -78,25 +80,32 @@ namespace FriendStorage.UI.Wrapper
 
             base.OnCollectionChanged(e);
             OnPropertyChanged(new PropertyChangedEventArgs(nameof(IsChanged)));
+            OnPropertyChanged(new PropertyChangedEventArgs(nameof(IsValid)));
         }
 
         private void ItemPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
-            var item = (T) sender;
-            if (_addedItems.Contains(item))
-                return;
-
-            if (item.IsChanged)
+            if (e.PropertyName == nameof(IsValid))
             {
-                if (!_modifiedItems.Contains(item))
-                    _modifiedItems.Add(item);
+                OnPropertyChanged(new PropertyChangedEventArgs(nameof(IsValid)));
             }
             else
             {
-                if (_modifiedItems.Contains(item))
-                    _modifiedItems.Remove(item);
+                var item = (T) sender;
+                if (_addedItems.Contains(item))
+                    return;
+                if (item.IsChanged)
+                {
+                    if (!_modifiedItems.Contains(item))
+                        _modifiedItems.Add(item);
+                }
+                else
+                {
+                    if (_modifiedItems.Contains(item))
+                        _modifiedItems.Remove(item);
+                }
+                OnPropertyChanged(new PropertyChangedEventArgs(nameof(IsChanged)));
             }
-            OnPropertyChanged(new PropertyChangedEventArgs(nameof(IsChanged)));
         }
 
         private void AttachItemPropertyChangedHandler(IEnumerable<T> items)

@@ -1,5 +1,6 @@
 ﻿using System;
-using System.Collections.ObjectModel;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using FriendStorage.Model;
 
@@ -9,8 +10,6 @@ namespace FriendStorage.UI.Wrapper
     {
         public FriendWrapper(Friend model) : base(model)
         {
-            InitializeComplexProperty(model);
-            InitializeCollectionProperty(model);
         }
 
         public string FirstName
@@ -76,7 +75,7 @@ namespace FriendStorage.UI.Wrapper
         public AddressWrapper Address { get; private set; }
         public ChangeTrackingCollection<FriendEmailWrapper> Emails { get; private set; }
 
-        private void InitializeCollectionProperty(Friend model)
+        protected override void InitializeCollectionProperty(Friend model)
         {
             if (model.Emails == null)
                 throw new ArgumentException("Emails cannot be null");
@@ -84,12 +83,20 @@ namespace FriendStorage.UI.Wrapper
             RegisterCollection(Emails, model.Emails);
         }
 
-        private void InitializeComplexProperty(Friend model)
+        protected override void InitializeComplexProperty(Friend model)
         {
             if (model.Address == null)
                 throw new ArgumentException("Address cannot be null");
             Address = new AddressWrapper(model.Address);
             RegisterComplex(Address);
+        }
+
+        public override IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        {
+            if (string.IsNullOrWhiteSpace(FirstName))
+                yield return new ValidationResult("Firstname is required", new[] { nameof(FirstName) });
+            if (IsDeveloper && Emails.Count == 0)
+                yield return new ValidationResult("A developer must have an email-address", new[] { nameof(IsDeveloper), nameof(Emails) });
         }
     }
 }
