@@ -45,7 +45,7 @@ namespace FriendStorage.UI.ViewModel
 
         public IFriendEditViewModel SelectedFriendEditViewModel
         {
-            get => _selectedFriendEditViewModel;
+            get { return _selectedFriendEditViewModel; }
             set
             {
                 _selectedFriendEditViewModel = value;

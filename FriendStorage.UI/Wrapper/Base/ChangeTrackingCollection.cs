@@ -4,7 +4,7 @@ using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Linq;
 
-namespace FriendStorage.UI.Wrapper.Base
+namespace FriendStorage.UI.Wrapper
 {
     public class ChangeTrackingCollection<T> : ObservableCollection<T>, IValidatableTrackingObject
         where T : class, IValidatableTrackingObject
@@ -34,7 +34,10 @@ namespace FriendStorage.UI.Wrapper.Base
         public ReadOnlyObservableCollection<T> RemovedItems { get; }
         public ReadOnlyObservableCollection<T> ModifiedItems { get; }
 
-        public bool IsChanged => AddedItems.Count > 0 || RemovedItems.Count > 0 || ModifiedItems.Count > 0;
+        public bool IsChanged
+        {
+            get { return AddedItems.Count > 0 || RemovedItems.Count > 0 || ModifiedItems.Count > 0; }
+        }
 
         public void AcceptChanges()
         {
@@ -62,7 +65,10 @@ namespace FriendStorage.UI.Wrapper.Base
             OnPropertyChanged(new PropertyChangedEventArgs(nameof(IsChanged)));
         }
 
-        public bool IsValid => this.All(t => t.IsValid);
+        public bool IsValid
+        {
+            get { return this.All(t => t.IsValid); }
+        }
 
         protected override void OnCollectionChanged(NotifyCollectionChangedEventArgs e)
         {

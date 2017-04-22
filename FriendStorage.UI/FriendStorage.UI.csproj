@@ -95,13 +95,22 @@
     <Compile Include="View\NavigationView.xaml.cs">
       <DependentUpon>NavigationView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Wrapper\AddressWrapper.cs" />
     <Compile Include="Wrapper\Base\ChangeTrackingCollection.cs" />
-    <Compile Include="Wrapper\Base\FriendEmailWrapper.cs" />
-    <Compile Include="Wrapper\FriendWrapper.cs" />
     <Compile Include="Wrapper\Base\IValidatableTrackingObject.cs" />
     <Compile Include="Wrapper\Base\ModelWrapper.cs" />
     <Compile Include="Wrapper\Base\NotifyDataErrorInfoBase.cs" />
+    <Compile Include="Wrapper\Custom\AddressWrapper.cs" />
+    <Compile Include="Wrapper\Custom\FriendEmailWrapper.cs" />
+    <Compile Include="Wrapper\Custom\FriendWrapper.cs" />
+    <Compile Include="Wrapper\Generated\AddressWrapper.g.cs" />
+    <Compile Include="Wrapper\Generated\FriendEmailWrapper.g.cs" />
+    <Compile Include="Wrapper\Generated\FriendGroupWrapper.g.cs" />
+    <Compile Include="Wrapper\Generated\FriendWrapper.g.cs" />
+    <Compile Include="Wrapper\Generated\GenerateModelWrappers.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GenerateModelWrappers.tt</DependentUpon>
+    </Compile>
     <Page Include="Styles\Brushes.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -197,6 +206,8 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="CodeTemplates\DbHelper.ttinclude" />
+    <None Include="CodeTemplates\Manager.ttinclude" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -220,6 +231,16 @@
   <ItemGroup>
     <Resource Include="FriendStorageIcon.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Wrapper\Generated\GenerateModelWrappers.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>GenerateModelWrappers.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

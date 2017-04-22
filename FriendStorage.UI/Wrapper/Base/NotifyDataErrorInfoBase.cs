@@ -5,7 +5,7 @@ using System.ComponentModel;
 using System.Linq;
 using FriendStorage.UI.ViewModel;
 
-namespace FriendStorage.UI.Wrapper.Base
+namespace FriendStorage.UI.Wrapper
 {
     public class NotifyDataErrorInfoBase : Observable, INotifyDataErrorInfo
     {
@@ -21,7 +21,10 @@ namespace FriendStorage.UI.Wrapper.Base
             return propertyName != null && Errors.ContainsKey(propertyName) ? Errors[propertyName] : Enumerable.Empty<string>();
         }
 
-        public bool HasErrors => Errors.Any();
+        public bool HasErrors
+        {
+            get { return Errors.Any(); }
+        }
 
         public event EventHandler<DataErrorsChangedEventArgs> ErrorsChanged;
 

@@ -7,7 +7,6 @@ using FriendStorage.UI.DataProvider.Lookups;
 using FriendStorage.UI.Events;
 using FriendStorage.UI.View.Services;
 using FriendStorage.UI.Wrapper;
-using FriendStorage.UI.Wrapper.Base;
 using Microsoft.Practices.Prism.PubSubEvents;
 
 namespace FriendStorage.UI.ViewModel
@@ -48,7 +47,7 @@ namespace FriendStorage.UI.ViewModel
 
         public FriendWrapper Friend
         {
-            get => _friend;
+            get { return _friend; }
             private set
             {
                 _friend = value;
@@ -58,7 +57,7 @@ namespace FriendStorage.UI.ViewModel
 
         public IEnumerable<LookupItem> FriendGroupLookup
         {
-            get => _friendGroups;
+            get { return _friendGroups; }
             set
             {
                 _friendGroups = value;
@@ -68,7 +67,7 @@ namespace FriendStorage.UI.ViewModel
 
         public FriendEmailWrapper SelectedEmail
         {
-            get => _selectedEmail;
+            get { return _selectedEmail; }
             set
             {
                 _selectedEmail = value;

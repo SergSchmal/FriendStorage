@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Runtime.CompilerServices;
 
-namespace FriendStorage.UI.Wrapper.Base
+namespace FriendStorage.UI.Wrapper
 {
     public class ModelWrapper<T> : NotifyDataErrorInfoBase, IValidatableTrackingObject, IValidatableObject
     {
@@ -37,9 +37,15 @@ namespace FriendStorage.UI.Wrapper.Base
 
         public T Model { get; }
 
-        public bool IsValid => !HasErrors && _trackingObjects.All(t => t.IsValid);
+        public bool IsValid
+        {
+            get { return !HasErrors && _trackingObjects.All(t => t.IsValid); }
+        }
 
-        public bool IsChanged => _originalValues.Count > 0 || _trackingObjects.Any(o => o.IsChanged);
+        public bool IsChanged
+        {
+            get { return _originalValues.Count > 0 || _trackingObjects.Any(o => o.IsChanged); }
+        }
 
         public void AcceptChanges()
         {
