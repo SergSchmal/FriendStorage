@@ -60,13 +60,13 @@ namespace FriendStorage.UI.Wrapper
 
         public bool BirthdayIsChanged => GetIsChanged(nameof(Birthday));
 
-	    public System.Boolean IsDeveloper
+	    public bool IsDeveloper
         {
-            get { return GetValue<System.Boolean>(); }
+            get { return GetValue<bool>(); }
             set { SetValue(value); }
         }
 
-        public System.Boolean IsDeveloperOriginalValue => GetOriginalValue<System.Boolean>(nameof(IsDeveloper));
+        public bool IsDeveloperOriginalValue => GetOriginalValue<bool>(nameof(IsDeveloper));
 
         public bool IsDeveloperIsChanged => GetIsChanged(nameof(IsDeveloper));
 

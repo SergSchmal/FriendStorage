@@ -77,7 +77,6 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Wrapper\ChangeNotificationCollectionProperty.cs" />
-    <Compile Include="Wrapper\ChangeNotificationCompexProperty.cs" />
     <Compile Include="Wrapper\ChangeNotificationComplexProperty.cs" />
     <Compile Include="Wrapper\ChangeNotificationSimpleProperty.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

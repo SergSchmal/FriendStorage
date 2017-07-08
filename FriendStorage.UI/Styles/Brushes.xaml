@@ -12,7 +12,7 @@
     <!--  Default Brushes for the FriendStorage-application  -->
     <SolidColorBrush x:Key="DefaultForegroundBrush" Color="White" />
     <SolidColorBrush x:Key="DefaultBackgroundBrush" Color="#555555" />
-    <SolidColorBrush x:Key="DefaultBorderBrush" Color="#888888" />
+    <SolidColorBrush x:Key="DefaultBorderBrush" Color="#9543C8" />
 
     <SolidColorBrush x:Key="DisabledBorderBrush" Color="Gray" />
     <SolidColorBrush x:Key="DisabledForegroundBrush" Color="Gray" />

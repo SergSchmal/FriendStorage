@@ -9,6 +9,8 @@ namespace FriendStorage.UI.Wrapper
         {
             if (string.IsNullOrWhiteSpace(FirstName))
                 yield return new ValidationResult("Firstname is required", new[] { nameof(FirstName) });
+            if (string.IsNullOrWhiteSpace(LastName))
+                yield return new ValidationResult("Lastname is required", new[] { nameof(LastName) });
             if (IsDeveloper && Emails.Count == 0)
                 yield return new ValidationResult("A developer must have an email-address", new[] { nameof(IsDeveloper), nameof(Emails) });
         }

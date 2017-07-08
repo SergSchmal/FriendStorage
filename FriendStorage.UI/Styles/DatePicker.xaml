@@ -216,7 +216,7 @@
     </Style>
 
     <Style BasedOn="{StaticResource ControlBaseStyle}" TargetType="{x:Type DatePicker}">
-        <Setter Property="behaviors:ChangeBehavior.OriginalValueConverter" Value="{DynamicResource DatePickerOriginalValueConverter}"/>
+        <Setter Property="behaviors:ChangeBehavior.OriginalValueConverter" Value="{DynamicResource DatePickerOriginalValueConverter}" />
         <Setter Property="Foreground" Value="{StaticResource DefaultForegroundBrush}" />
         <Setter Property="Background" Value="{StaticResource DefaultBackgroundBrush}" />
         <Setter Property="BorderBrush" Value="{StaticResource DefaultBorderBrush}" />

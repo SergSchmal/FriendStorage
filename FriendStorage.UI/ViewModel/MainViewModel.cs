@@ -13,8 +13,8 @@ namespace FriendStorage.UI.ViewModel
     public class MainViewModel : Observable
     {
         private readonly IEventAggregator _eventAggregator;
-        private readonly IMessageDialogService _messageDialogService;
         private readonly Func<IFriendEditViewModel> _friendEditViewModelCreator;
+        private readonly IMessageDialogService _messageDialogService;
         private IFriendEditViewModel _selectedFriendEditViewModel;
 
         public MainViewModel(IEventAggregator eventAggregator,
@@ -45,7 +45,7 @@ namespace FriendStorage.UI.ViewModel
 
         public IFriendEditViewModel SelectedFriendEditViewModel
         {
-            get { return _selectedFriendEditViewModel; }
+            get => _selectedFriendEditViewModel;
             set
             {
                 _selectedFriendEditViewModel = value;
@@ -68,8 +68,7 @@ namespace FriendStorage.UI.ViewModel
 
         private void OnOpenFriendTab(int friendId)
         {
-            var friendEditVm =
-                FriendEditViewModels.SingleOrDefault(vm => vm.Friend.Id == friendId);
+            var friendEditVm = FriendEditViewModels.SingleOrDefault(vm => vm.Friend.Id == friendId);
             if (friendEditVm == null)
             {
                 friendEditVm = _friendEditViewModelCreator();
