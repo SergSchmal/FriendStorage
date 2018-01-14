@@ -108,9 +108,9 @@
         <!--  Footer  -->
         <TextBlock
             Grid.Row="3"
-            Grid.ColumnSpan="3"
+            Grid.ColumnSpan="3" Grid.Column="0"
             Margin="10"
             Foreground="LightGray"
-            Text="Created by Thomas Claudius Huber, 2015" />
+            Text="Created by Sergej Schmal, 2017" />
     </Grid>
 </Window>
